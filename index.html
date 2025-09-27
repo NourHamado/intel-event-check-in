@@ -28,7 +28,7 @@
     <div class="attendance-tracker">
       <div class="attendance-header">
         <i class="fas fa-users"></i>
-        Attendance: <span id="attendeeCount">0</span>/50
+        Attendance: <span id="attendeeCount">0</span>/3
       </div>
       <div class="progress-container">
         <div id="progressBar" class="progress-bar"></div>
@@ -37,10 +37,15 @@
     <div class="container">
       <!-- Feedback message -->
       <p id="greeting"></p>
+      <div id="greetingMessage" style="margin-top: 16px"></div>
 
       <!-- Check-in form -->
-      <form class="check-in" id="checkInForm">
-        <label for="attendeeName" class="form-label">Attendee Check-In</label>
+      <form
+        class="check-in"
+        id="checkInForm"
+        aria-label="Attendee Check-In Form"
+      >
+        <label for="attendeeName" class="form-label">Attendee Name</label>
         <div class="form-group">
           <div class="input-wrapper">
             <input
@@ -49,23 +54,32 @@
               name="attendeeName"
               placeholder="Enter name..."
               required
+              aria-label="Attendee Name"
             />
-            <select id="teamSelect" name="team" required>
+            <label for="teamSelect" class="form-label" style="display: none"
+              >Select Team</label
+            >
+            <select
+              id="teamSelect"
+              name="team"
+              required
+              aria-label="Select Team"
+            >
               <option value="" disabled selected>Select Team...</option>
               <option value="water">Team Water Wise</option>
               <option value="zero">Team Net Zero</option>
               <option value="power">Team Renewables</option>
             </select>
           </div>
-          <button type="submit" id="checkInBtn">
-            <i class="fas fa-user-check"></i> Check In
+          <button type="submit" id="checkInBtn" aria-label="Check In">
+            <i class="fas fa-user-check" aria-hidden="true"></i> Check In
           </button>
         </div>
       </form>
 
       <!-- Team stats -->
       <div class="team-stats">
-        <h3>Team Attendance</h3>
+        <h2>Team Attendance</h2>
         <div class="teams-grid">
           <div class="team-card water">
             <span class="team-name">🌊 Team Water Wise</span>
@@ -80,6 +94,13 @@
             <span class="team-count" id="powerCount">0</span>
           </div>
         </div>
+      </div>
+      <!-- Attendee list section -->
+      <div class="attendee-list-section">
+        <h2>Attendee List</h2>
+        <ul id="attendeeList" role="list">
+          <!-- attendee items will have role="listitem" -->
+        </ul>
       </div>
     </div>
 
