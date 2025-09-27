@@ -5,7 +5,7 @@ const teamSelect = document.getElementById("teamSelect");
 
 // Track attendance
 let count = 0;
-const maxCount = 3;
+const maxCount = 50;
 
 // Get greeting message element (already in HTML above check-in form)
 const greetingDiv = document.getElementById("greetingMessage");
